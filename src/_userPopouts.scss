@@ -1,0 +1,325 @@
+@use "_vars";
+
+.userPopout-2j1gM4 {
+    width: 550px !important;
+    height: 292.5px;
+    display: grid;
+    grid-template-areas:
+        "avatar info body"
+        "messagebox messagebox body"
+        "banner banner body";
+    grid-template-columns: 92px auto 250px;
+    grid-template-rows: calc(16px + 92px + 8px /*+ 20px*/) 40px auto;
+    background-color: #18191c99;
+    backdrop-filter: blur(vars.$blur-level);
+
+    .headerNormal-3Zn_yu { /* Banner */
+        grid-area: banner;
+
+        grid-row: avatar-start / banner-end;
+
+        &::before {
+            content: "";
+            height: 92px;
+            width: calc(100% - 32px - 250px);
+            margin: 16px;
+            background-color: #18191c99;
+            backdrop-filter: blur(vars.$blur-level);
+            border-radius: 5px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .banner-1YaD3N {
+            height: 100%;
+
+            .pencilContainer-18TrEJ {
+                bottom: 10px;
+                top: auto;
+            }
+
+            .premiumIconWrapper-32h0Ri {
+                bottom: 6px;
+                top: auto;
+            }
+        }
+
+        
+    }
+
+    :is(.avatar-2Vndt_, .avatar-b5OQ1N, .avatarHintInner-2HUAWj) {
+        border-radius: vars.$avatar-roundness;
+    }
+
+    .avatarWrapperNormal-ahVUaC { /* Avatar */
+        grid-area: avatar;
+
+        > .avatarHint-k7pYop > foreignObject {
+            mask: none;
+        }
+
+        .avatar-2Vndt_ {
+            background-color: transparent;
+            border-color: transparent;
+
+            > svg { 
+                clip-path: polygon(0% 0%,  0% 100%, 80px 100%, 80px 0%);
+                overflow: hidden;
+
+                > foreignObject {
+                    mask: none;
+                }
+            }
+        }
+
+        .pointerEvents-9SZWKj {
+            x: 71;
+            y: 71;
+        }
+    }
+
+    .avatarPositionPremium-1zPBq9 {
+        top: 16px !important; 
+        // Required because discord applies a class that overrides pfp position if user has nitro
+    }
+
+    .headerTop-3GPUSF { /* User info */
+        // TODO: Don't forget to replace #18191c with a correct theme color
+        // opacity level in vars.scss
+
+        grid-area: info;
+        margin: 16px;
+        margin-bottom: 8px;
+        //background-image: linear-gradient(to right, /*var(--background-floating)*/#18191ce6 0%, /*var(--background-floating)*/ #18191ce6 50.86%, transparent 50.86%);
+        padding: 6px;
+        transform: translateX(-12px);
+
+        width: calc(100% - 32px);
+
+        z-index: 2;
+
+        //backdrop-filter: blur(5px);
+
+        // &::after {
+        //     content: "";
+        //     height: 92px;
+        //     width: 92px;
+        //     position: absolute;
+        //     top: 0;
+        //     right: 0;
+        //     border-top-right-radius: vars.$avatar-roundness;
+        //     border-bottom-right-radius: vars.$avatar-roundness;
+        //     background-color: /*var(--background-floating)*/ #18191ce6;
+        //     z-index: -1;
+
+        //     //backdrop-filter: blur(5px);
+        // }
+
+        > .profileBadges-2pItdR {
+            left: 14px;
+            right: auto;
+            top: auto;
+            bottom: 6px;
+        }
+
+        > .headerText-1-WmDq {
+            width: 159.762px;
+            margin-left: 8px;
+
+            > h3 {
+                
+                width: 14ch;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .body-2wLx-E {
+        grid-area: body;
+
+        .applicationInstallButton-taCWKH {
+            margin-top: 16px;
+        }
+
+        .customStatus-3XAoF9 { /* Custom status */
+            position: relative;
+            overflow: hidden;
+            padding: 36px 0 0 0;
+
+            + .divider-1wtgZ3 {
+                background-color: var(--background-modifier-accent);;
+                margin-bottom: 12px;
+                height: 1px;
+            }
+
+            &::before {
+                content: "CUSTOM STATUS"; 
+                position: absolute;
+                top: 0; 
+                left: 0;
+                width: calc(100% - 10px);
+                font-size: 12px;
+                font-weight: 700; 
+                color: var(--header-secondary);
+                padding-top: 12px;
+                line-height: 16px
+            }
+        }
+
+        .divider-1wtgZ3 { /* Divider between custom status and about me */
+            background-color: transparent;
+            margin-bottom: 13px;
+            height: 0;
+        }
+
+        .aboutMeSection-PUghFQ {
+            -webkit-line-clamp: 999999;
+        }
+
+        .rolesList-3uZoaa { /* Role list section */
+            flex-direction: column;
+            justify-content: center;
+            // max-height: 100px;
+            max-width: 218px;
+            // overflow-y: auto;
+            // overflow: hidden;
+            
+
+            > .role-2TIOKu {
+                // width: calc(100% - 18.2px);
+                // margin-left: 21px;
+                border-radius: 0;
+                padding-left: 0;
+
+                > .roleCircle-1EgnFN {
+                    position: absolute;
+                    height: 22px;
+                    width: 3px;
+                    margin: 0;
+                    border-radius: 0;
+                    transition: width ease-in-out 0.2s;
+                    overflow: hidden;
+
+                    > svg {
+                        min-width: 10px;
+                        min-height: 10px;
+                    }
+                }
+
+                > .roleName-2ZJJYR {
+                    transform: translateX(8px);
+                    transition: transform ease-in-out 0.2s;
+                }
+
+                .roleIcon-29epUq {
+                    margin: 0;
+                    right: 0;
+                    transform: translateX(-50%);
+                    position: absolute;
+                }
+
+                &[aria-label*="Remove role"]:hover > .roleCircle-1EgnFN {
+                    width: 12px;
+                }
+
+                &[aria-label*="Remove role"]:hover > .roleName-2ZJJYR {
+                    transform: translateX(19px);
+                }
+            }
+        }
+
+        .bodyInnerWrapper-2bQs1k { /* Notes section */
+            background-color: transparent;
+
+            .note-Go5ZP2 { 
+                textarea:focus { background-color: transparent;}
+            }
+        }
+    }
+
+    .footer-3naVBw { /* "Message @user" box */
+        grid-area: messagebox;
+        
+        padding: 0;
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 0;
+
+        background-color: transparent;
+        
+        border-radius: vars.$avatar-roundness;
+
+        .input-2z42oC {
+            background-color: #13161899;
+            border: none;
+            backdrop-filter: blur(vars.$blur-level);
+        }
+
+
+    }
+}
+
+.spinningCircle-CmRLnP { /* User popout loading spinner */
+    z-index: 1003;
+    font-size: 10px;
+    text-indent: -9999em;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #fc8527 10%, lighten(#fc8527, 3%) 30%, transparent 50%);
+    position: relative;
+    animation: load3 1.4s infinite linear;
+    transform: translateZ(0);
+}
+.spinningCircle-CmRLnP:before {
+    z-index: 1001;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(360deg, #fc8527 10%, #ff045b 50%);
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+}
+.spinningCircle-CmRLnP:after {
+    z-index: 1004;
+    background-color: var(--background-secondary);
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes load3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinningCircle-CmRLnP > * {
+    display: none;
+}
+
+.spinnerWrapper-6lH0US .spinningCircle-CmRLnP {
+    width: 16px;
+    height: 16px;
+}
+
+.spinnerWrapper-6lH0US .spinningCircle-CmRLnP::after {
+    background-color: var(--background-tertiary);
+}
+
+
+.mask-1FEkla.svg-2azL_l {
+    
+}

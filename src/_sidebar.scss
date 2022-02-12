@@ -2,7 +2,6 @@
 
 .sidebar-1tnWFu {
     > .container-1NXEtd {
-
         #channels {
             .containerDefault-YUSmu3 {
                 .unread-36eUEm {
@@ -13,11 +12,16 @@
                     transform: translateY(-50%);
                 }
 
-                .content-1gYQeQ > a > .name-28HaxV {
-                    transition: transform 0.2s ease-in-out;
+                .content-1gYQeQ {
+
+
+                    > a > .name-28HaxV {
+                        transition: transform 0.2s ease-in-out;
+                    }
                 }
 
-                &:hover .content-1gYQeQ > a > .name-28HaxV {
+                &:hover .content-1gYQeQ > a > .name-28HaxV,
+                > modeSelected-3DmyhH > .content-1gYQeQ > a > .name-28HaxV {
                     transform: translateX(5px);
                 }
             }
@@ -27,6 +31,9 @@
     }
 
     > .panels-3wFtMD {
+        // width: 48px;
+        // height: 92px;
+
         > .container-YkUktl {
             .avatar-b5OQ1N {
                 border-radius: vars.$avatar-roundness;
@@ -99,3 +106,4 @@
         transform: rotate(360deg);
     }
 }
+

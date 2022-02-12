@@ -1,4 +1,5 @@
 @use "_vars";
+@use "sass:list";
 
 .userPopout-2j1gM4 {
     width: 550px !important;
@@ -9,7 +10,7 @@
         "messagebox messagebox body"
         "banner banner body";
     grid-template-columns: 92px auto 250px;
-    grid-template-rows: calc(16px + 92px + 8px /*+ 20px*/) 40px auto;
+    grid-template-rows: calc(16px + 92px + 8px + 24px) 40px auto;
     background-color: #18191c99;
     backdrop-filter: blur(vars.$blur-level);
 
@@ -20,7 +21,7 @@
 
         &::before {
             content: "";
-            height: 92px;
+            height: calc(92px);
             width: calc(100% - 32px - 250px);
             margin: 16px;
             background-color: #18191c99;
@@ -73,8 +74,15 @@
         }
 
         .pointerEvents-9SZWKj {
-            x: 71;
-            y: 71;
+            x: 0;
+            y: 0;
+
+            width: 80px;
+            height: 80px;
+            
+            r: 5;
+
+            mask: none;
         }
     }
 
@@ -97,33 +105,27 @@
         width: calc(100% - 32px);
 
         z-index: 2;
-
-        //backdrop-filter: blur(5px);
-
-        // &::after {
-        //     content: "";
-        //     height: 92px;
-        //     width: 92px;
-        //     position: absolute;
-        //     top: 0;
-        //     right: 0;
-        //     border-top-right-radius: vars.$avatar-roundness;
-        //     border-bottom-right-radius: vars.$avatar-roundness;
-        //     background-color: /*var(--background-floating)*/ #18191ce6;
-        //     z-index: -1;
-
-        //     //backdrop-filter: blur(5px);
-        // }
+        overflow: visible;
 
         > .profileBadges-2pItdR {
-            left: 14px;
+            left: -80px;
             right: auto;
             top: auto;
             bottom: 6px;
+            padding: 0px 6px;
+            
+            transform: translateY(8px);
+
+            justify-content: start;
+            min-width: 255px;
+
+            border-radius: vars.$avatar-roundness;
+            background-color: #18191c99;
+            backdrop-filter: blur(vars.$blur-level);
         }
 
         > .headerText-1-WmDq {
-            width: 159.762px;
+            width: 156px;
             margin-left: 8px;
 
             > h3 {
@@ -147,22 +149,23 @@
             padding: 36px 0 0 0;
 
             + .divider-1wtgZ3 {
-                background-color: var(--background-modifier-accent);;
+                background-color: var(--background-modifier-accent);
                 margin-bottom: 12px;
                 height: 1px;
             }
 
-            &::before {
+            &::after {
                 content: "CUSTOM STATUS"; 
                 position: absolute;
-                top: 0; 
-                left: 0;
-                width: calc(100% - 10px);
+                padding-top: 12px;
+                width: 100%;
+
                 font-size: 12px;
                 font-weight: 700; 
                 color: var(--header-secondary);
-                padding-top: 12px;
-                line-height: 16px
+
+                top: 0; 
+                left: 0;
             }
         }
 
@@ -246,16 +249,16 @@
         margin-top: 0;
 
         background-color: transparent;
-        
         border-radius: vars.$avatar-roundness;
+
 
         .input-2z42oC {
             background-color: #13161899;
             border: none;
             backdrop-filter: blur(vars.$blur-level);
+
+            border-radius: vars.$avatar-roundness;
         }
-
-
     }
 }
 
